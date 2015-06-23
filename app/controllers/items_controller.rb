@@ -22,6 +22,11 @@ class ItemsController < ApplicationController
 		redirect_to @list, notice: "Item completed"
 	end
 
+	def put
+		@item.update_attribute(:puted_at, Time.now)
+		redirect_to @list, notice: "Item puted"
+	end
+
 	private
 
 	def set_list

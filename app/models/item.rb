@@ -4,4 +4,8 @@ class Item < ActiveRecord::Base
   def completed?
   	!completed_at.blank?
   end
+
+  def puted?
+  	!puted_at.blank?
+  end
 end
