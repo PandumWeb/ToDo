@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+devise_for :users
   resources :lists do
     resources :items do
     	member do
@@ -7,7 +8,5 @@ Rails.application.routes.draw do
     	end
     end
   end
-
-  
   root "lists#index"
 end

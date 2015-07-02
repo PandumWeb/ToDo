@@ -1,4 +1,4 @@
 == README
 
 Funny ToDo app, build with Ruby on Rails !
-Enjoy !
+
