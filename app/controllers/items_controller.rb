@@ -10,16 +10,16 @@ class ItemsController < ApplicationController
 	def destroy
 		@item = @list.items.find(params[:id])
 		if @item.destroy
-			flash[:success] = "Item was deleted."
+			flash[:success] = "La tâche a été supprimée."
 		else 
-			flash[:error] = "Item could not be deleted."
+			flash[:error] = "ILa tâche ne peut être supprimée"
 		end
 		redirect_to @list
 	end
 
 	def complete
 		@item.update_attribute(:completed_at, Time.now)
-		redirect_to @list, notice: "Item completed"
+		redirect_to @list, notice: "Tâche effectuée"
 	end
 
 	def put
