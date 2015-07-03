@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+
 
 <h2 class="todo_list_title"><%= @list.title %></h2>
-<p class="todo_list_sub_title"><%= @list.description %></p>
-
+<p id="notice"><%= notice %></p>
 <div id="todo_items_wrapper">
 	<%= render @list.items %>
 	<% if @list.user == current_user %>
