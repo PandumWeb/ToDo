@@ -88,5 +88,5 @@ ActionMailer::Base.smtp_settings = {
   password:             ENV['SENDGRID_PASSWORD'],
   domain:               'herokuapp.com',
   enable_starttls_auto: true
-
+}
 end
