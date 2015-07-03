@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+	before_action :authenticate_user!
 	before_action :set_list
 	before_action :set_item, except: [:create]
 
@@ -12,7 +13,7 @@ class ItemsController < ApplicationController
 		if @item.destroy
 			flash[:success] = "La tâche a été supprimée."
 		else 
-			flash[:error] = "ILa tâche ne peut être supprimée"
+			flash[:error] = "La tâche ne peut être supprimée"
 		end
 		redirect_to @list
 	end

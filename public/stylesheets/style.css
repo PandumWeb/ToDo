@@ -1,7 +1,13 @@
-
 body {
 	height: 100%;
   	background:url(../images/bg.jpg) repeat;
   	background-size: cover;
   	font-family: 'Lato', sans-serif;
+}
+
+.icon{
+	margin-right: 15px;
+}
+small{
+	color: #740505;
 }

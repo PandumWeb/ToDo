@@ -7,23 +7,29 @@
 			<p style="opacity: 0.5;"><strike><%= item.content %></strike></p>
 		</div>
 		<div class="trash">
+		<% if @list.user == current_user %>
 			<%= link_to list_item_path(@list, item.id), method: :delete, data: { confirm: "Etes vous sûr?" } do %>
 				<i class="fa fa-trash"></i>
 			<% end %>
+		<% end %>
 		</div>
 	<% else %>
 		<div class="complete">
+		<% if @list.user == current_user %>
 			<%= link_to complete_list_item_path(@list, item.id), method: :patch do %>
 				<i class="fa fa-check"></i>
 			<% end %>
+		<% end %>
 		</div>
 		<div class="todo_item">
 			<p><%= item.content %></p>
 		</div>
 		<div class="trash">
+		<% if @list.user == current_user %>
 			<%= link_to list_item_path(@list,item.id), method: :delete, data: { confirm: "Etes vous sûr?" } do %>
 				<i class="fa fa-trash"></i>
 			<% end %>
+		<% end %>
 		</div>
 	<% end %>
 </div>

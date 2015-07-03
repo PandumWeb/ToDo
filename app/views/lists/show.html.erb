@@ -5,13 +5,17 @@
 
 <div id="todo_items_wrapper">
 	<%= render @list.items %>
+	<% if @list.user == current_user %>
 	<div id="form">
 		<%= render "items/form" %>
 	</div>
+	<% end %>
 </div>
 
 <div class="links">
+<% if @list.user == current_user %>
 	<%= link_to 'Modifier', edit_list_path(@list) %> |
 	<%= link_to 'Supprimer', list_path(@list), method: :delete, data: {confirm: "Etes vous sûr?"} %>|
+<% end %>
 	<%= link_to 'Retour', lists_path %>
 </div>

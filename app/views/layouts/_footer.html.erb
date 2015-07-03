@@ -1,0 +1,10 @@
+<% unless user_signed_in? %>
+<div class="col-md-2 pull-right icon">
+	<%= link_to "",user_session_path , class:"fa fa-user"%>	
+</div>
+<% else %>
+<div class="col-md-2 pull-right icon">
+	<%= link_to "",destroy_user_session_path , :method => :delete,class:"fa fa-power-off"%>
+</div>
+<% end %>
+

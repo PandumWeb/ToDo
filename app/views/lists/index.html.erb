@@ -1,10 +1,36 @@
+ <% if user_signed_in? %>
+  <h2 class="welcome">Bienvenu <%= current_user.username %></h2>
+ <% end %>
+
+  <form action="" class="search-form">
+    <div class="form-group">
+        <%= form_tag(lists_path, :method => "get") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Chercher le titre de la liste", id:"search",class: "form-control" %>
+        <% end %>
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+    </div>
+  </form>
+
+<div class="row">
+<div class="col-md-12">
+<p id="notice"><%= notice %></p>
+<% if @lists.present?%>
 <%  @lists.each do |list | %>
   <div class="index_row clearfix">
     <h2 class="todo_list_title"> <%= link_to list.title, list %></h2>
+    <small><em>Liste de: <%= list.user.username unless list.user.blank? %><em></small>
     <p class="todo_list_sub_title"><%= list.description %></p>
   </div>
 <% end %>
-
+<% else %>
+  <p>Il n'y a pas de liste contenant le(s) terme(s) <%= params[:search] %>.</p>
+  <div class="links">
+  <%= link_to "Retour",lists_path %>
+  </div>
+<% end %>
+</div>
+</div>
 <div class="links">
   <%= link_to "Nouvelle liste", new_list_path %>
+  <%= render 'layouts/footer' %>
 </div>

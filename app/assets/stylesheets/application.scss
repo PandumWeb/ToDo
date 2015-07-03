@@ -15,6 +15,7 @@
  */
 $white_opaque: rgba(250, 250, 250, .4);
  $dark: #B71C1C;
+ $red:#861e09;
 
 * {
 	box-sizing: border-box;
@@ -55,7 +56,7 @@ html {
 .todo_list_title {
 	text-align: center;
 	font-weight: 600;
-	font-size: 2.3rem;
+	font-size: 2rem;
 	padding-bottom: 30px;
 	color: white;
 	margin: 0;
@@ -173,7 +174,7 @@ html {
 label {
 	color: $dark;
 }
-input[type="text"], textarea {
+input[type="text"],input[type="email"],input[type="password"], textarea {
 	width: 100%;
 	margin: .5em 2% 1em 0;
 	display: inline-block;
@@ -206,3 +207,21 @@ input[type="submit"] {
 	}
 }
 ::-webkit-input-placeholder { color: $dark; }
+
+
+.search-form{
+	margin:10px;
+}
+
+.welcome{
+	text-align: center;
+	font-weight: 600;
+	font-size: 2rem;
+	padding-bottom: 30px;
+	margin: 0;
+	color:$red;
+}
+
+#new_user{
+	margin:10px;
+}

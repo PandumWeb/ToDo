@@ -1,21 +1,29 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   # GET /lists
   # GET /lists.json
   def index
-      @lists = List.all
+    if params[:search]
+      @lists = List.search(params[:search]).order("created_at DESC")
+    else
+      @lists = List.all.order('created_at DESC')
+    end
+
   end
 
   # GET /lists/1
   # GET /lists/1.json
   def show
+ 
   end
 
   # GET /lists/new
   def new
     @list = List.new
   end
+
 
   # GET /lists/1/edit
   def edit
@@ -24,7 +32,7 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.build(params[:list].permit(:title, :description))
 
     respond_to do |format|
       if @list.save
@@ -42,7 +50,7 @@ class ListsController < ApplicationController
   def update
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
+        format.html { redirect_to @list, notice: 'Liste modifiée avec succes' }
         format.json { render :show, status: :ok, location: @list }
       else
         format.html { render :edit }
@@ -56,7 +64,7 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'List was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Liste supprimée avec succès.' }
       format.json { head :no_content }
     end
   end

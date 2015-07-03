@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<% @lists.each do |list| %>
+  <div class="index_row clearfix">
+    <h2 class="todo_list_title"> <%= link_to list.title, list %></h2>
+    <small><em>Liste de: <%= list.user.username unless list.user.blank? %><em></small>
+    <p class="todo_list_sub_title"><%= list.description %></p>
+  </div>
+<% end %>
+
+<div class="links">
+  <%= link_to "Nouvelle liste", new_list_path %>
+  <%= render 'layouts/footer' %>
+</div>
