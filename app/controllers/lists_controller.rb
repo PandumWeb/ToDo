@@ -6,9 +6,9 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     if params[:search]
-      @lists = List.search(params[:search]).order("created_at DESC")
+      @lists = List.search(params[:search]).paginate(:page => params[:page], :per_page => 6).order("created_at DESC")
     else
-      @lists = List.all.paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+      @lists = List.paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
     end
   end
 
