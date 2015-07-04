@@ -1,5 +1,7 @@
  <% if user_signed_in? %>
   <h2 class="welcome">Bienvenu <%= current_user.username %></h2>
+  <% else %>
+  <h3 class="welcome2">Connectez-vous pour créer une liste</h3>
  <% end %>
 
   <form action="" class="search-form">
@@ -29,6 +31,7 @@
 </div>
 </div>
 <div class="links">
+ <%= will_paginate @lists, renderer: BootstrapPagination::Rails,  :previous_label => 'Précédent', :next_label => 'Suivant' %>
   <%= link_to "Nouvelle liste", new_list_path %>
   <%= render 'layouts/footer' %>
 </div>

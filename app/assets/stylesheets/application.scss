@@ -37,14 +37,14 @@ html {
 
 #notice {
 	text-align: center;
-	font-size: 0.8em;
+	font-size: 1.1em;
 	color: $dark;
 	font-weight: 100;
 }
 
 .container {
-	width: 50%;
-	max-width: 750px;
+	width: 80%;
+	min-width: 200px;
 	background: $white_opaque;
 	margin: 3em auto 0 auto;
 	border-radius: 7px;
@@ -56,10 +56,11 @@ html {
 .todo_list_title {
 	text-align: center;
 	font-weight: 600;
-	font-size: 2rem;
+	font-size: 3rem;
 	padding-bottom: 30px;
 	color: white;
 	margin: 0;
+	font-style:normal;
 	a {
 		text-decoration: none;
 		color: white;
@@ -97,15 +98,22 @@ html {
 			text-align: center;
 			border-right: 1px solid rgba(250,250,250, .3);
 			padding: 1em 0;
+
+			.fa{
+				font-size:21px;
+				line-height:90px;
+			}
 		}
 		.todo_item {
 			width: 80%;
 			float: left;
 			p {
 				margin: 0;
-				padding: 1em;
 				color: $dark;
+				line-height:80px;
 				font-weight: 100;
+				font-size:21px;
+				padding:1em;
 			}
 		}
 		.trash {
@@ -114,6 +122,11 @@ html {
 			text-align: center;
 			border-left: 1px solid rgba(250,250,250, .3);
 			padding: 1em 0;
+
+			.fa{
+				font-size:21px;
+				line-height:90px;
+			}
 		}
 		i {
 			color: white;
@@ -159,11 +172,11 @@ html {
 .links {
 	display: block;
 	margin: 1.5em auto 0 auto;
-	text-align: center;
-	font-size: 0.8em;
+	font-size: 1.2em;
 	color: white;
 	a {
 		color: white;
+		font-style:normal;
 	}
 }
 
@@ -222,4 +235,15 @@ input[type="submit"] {
 
 #new_user{
 	margin:10px;
+}
+.welcome2{
+	text-align: center;
+	font-weight: 600;
+	padding-bottom: 30px;
+	margin: 0;
+	color:$red;
+}
+
+small em{
+	font-size:14px;
 }

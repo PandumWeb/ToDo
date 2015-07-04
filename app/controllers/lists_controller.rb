@@ -8,9 +8,8 @@ class ListsController < ApplicationController
     if params[:search]
       @lists = List.search(params[:search]).order("created_at DESC")
     else
-      @lists = List.all.order('created_at DESC')
+      @lists = List.all.paginate(:page => params[:page], :per_page => 1).order('created_at DESC')
     end
-
   end
 
   # GET /lists/1
