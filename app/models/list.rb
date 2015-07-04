@@ -4,7 +4,7 @@ class List < ActiveRecord::Base
 	belongs_to :user
 
 	def self.search(search)
-	  where("description LIKE ? OR title LIKE ?", "%#{search}%", "%#{search}%")
+	  where(" title LIKE ?", "%#{search}%")
 	end
 	
 end
